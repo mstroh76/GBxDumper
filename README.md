@@ -31,31 +31,31 @@ GBA Modul Pinbelegung:
 
 Der ROM-Speicher wird mit AD0-AD23 adressiert und mit AD0-AD15 werden die Daten gelesen (2 Byte). Der Speicher kann direkt adressiert oder auch sequenziell ausgelesen werden. Beim sequenziell Lesen muss nicht expliziert jede Adresse gesetzt werden, sondern die Adresse des ROM-Speichers wird automatisch inkrementiert.
 
-Lesevorgang mit Adresse: 
-1.) *CS, *RD auf High 
-2.) AD00-AD23 Output 
-3.) Adresse AD00-AD23 schreiben 
-4.) *CS auf Low 
-5.) AD00-AD15 Input 
-6.) *RD auf Low 
-7.) AD00-AD15 lesen (2 Byte) 
-8.) Sprung zu 1.) 
+Lesevorgang mit Adresse:  
+1. *CS, *RD auf High  
+2. AD00-AD23 Output  
+3. Adresse AD00-AD23 schreiben  
+4. *CS auf Low  
+5. AD00-AD15 Input  
+6. *RD auf Low  
+7. AD00-AD15 lesen (2 Byte)  
+8. Sprung zu 1.  
 
-Lesevorgang automatisch inkrementiert: 
-1.) *CS, *RD auf High 
-2.) AD00-AD23 Output 
-3.) Adresse AD00-AD23 auf Low schreiben 
-4.) *CS auf Low 
-5.) AD00-AD15 Input 
-6.) *RD auf Low 
-7.) AD00-AD15 lesen (2 Byte) 
-8.) *RD auf High 
-9.) Sprung zu 6.) 
+Lesevorgang automatisch inkrementiert:  
+1. *CS, *RD auf High  
+2. AD00-AD23 Output  
+3. Adresse AD00-AD23 auf Low schreiben  
+4. *CS auf Low  
+5. AD00-AD15 Input  
+6. *RD auf Low  
+7. AD00-AD15 lesen (2 Byte)  
+8. *RD auf High  
+9. Sprung zu 6.  
 
 Hauptentscheiden für für die Lesegeschwindigkeit ist die Frequenz des I2C-Busses. Diese kann über die Datei  /boot/config.txt gesetzt werden. Dazu muss der Eintrag „dtparam=i2c1_baudrate=900000“ hinzugefügt werden. Üblich ist eine Frequenz von 100 und 400 kHz. Sie kann aber auch, je nach verwendeter I2C-Hardware (Pegelwandler), auf einen wesentlich höheren Wert gesetzt werden. Bei verschiedenen Tests kam es bei einer Frequenz von 1000 kHz zu Problemen, darum wird eine maximale Frequenz von 900 kHz empfohlen.  
 Mit einer Raspberry Pi B+ und einer I2C-Frequenz von 900 kHz wird für einen Lesezyklus ca. 113 µs benötigt, dies entspricht ca. 1 MB/min Transferrate. Ein 32 MB GBA-Modul benötigt also ca. 32 Minuten zum Auslesen.
 
-Programmparameter:
+Programmparameter:  
   r ... read pin via I2C instead of GPIO (have to match with board jumper, slow)  
   g <Pin> ...  GPIO Pin for read operation  
   e <Pin> ...  GPIO Pin for LED (0=off)  
