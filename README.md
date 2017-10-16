@@ -141,7 +141,7 @@ sudo ./gbxdumper -e 0 -g 4 -s 0 -a -b -c -z 32 -o 16777088 -f -n -v > debug.txt
  --------------------------------------------------
 **Hardware:**
 
-PCB Pi GBx-Dumper by FSA: http://www.forum-raspberrypi.de/Thread-projekt-game-boy-advance-spiele-auslesen
+PCB Pi GBx-Dumper by FSA: https://forum-raspberrypi.de/forum/thread/33947-game-boy-advance-spiele-auslesen/
  
  
  (c)2017 mstroh 
